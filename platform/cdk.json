@@ -1,0 +1,30 @@
+{
+  "app": "npx tsx bin/platform.ts",
+  "watch": {
+    "include": [
+      "**"
+    ],
+    "exclude": [
+      "README.md",
+      "cdk*.json",
+      "**/*.d.ts",
+      "**/*.js",
+      "tsconfig.json",
+      "package*.json",
+      "yarn.lock",
+      "node_modules",
+      "test"
+    ]
+  },
+  "context": {
+    "clientCallbackUrls": [
+      "http://localhost:3000/callback"
+    ],
+    "autoClientCallbackUrls": [
+      "http://localhost:3000/callback"
+    ],
+    "logoutUrls": [
+      "http://localhost:3000/logout"
+    ]
+  }
+}

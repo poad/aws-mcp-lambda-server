@@ -1,0 +1,16 @@
+{
+  "name": "aws-mcp-lambda-server",
+  "description": "",
+  "scripts": {
+    "clean": "pnpm run -r --parallel --if-present clean",
+    "build": "pnpm run -r --parallel --if-present build",
+    "lint": "pnpm run -r --parallel --if-present lint",
+    "lint-fix": "pnpm run -r --parallel --if-present lint-fix"
+  },
+  "author": "Kenji Saito",
+  "license": "MIT",
+  "packageManager": "pnpm@10.11.0",
+  "devDependencies": {
+    "pnpm": "^10.11.0"
+  }
+}
