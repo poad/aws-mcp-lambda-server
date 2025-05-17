@@ -10,7 +10,7 @@ export const server = new McpServer({
 
 server.tool(
   'weather',
-  'Get weather information for a city',
-  { city: z.string().describe('City name') },
+  '街の天気予報を取得します',
+  { city: z.string().describe('街の名前') },
   weather,
 );
