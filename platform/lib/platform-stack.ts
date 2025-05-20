@@ -314,7 +314,6 @@ export class PlatformStack extends cdk.Stack {
 
       const mcpResource = api.root.addResource('mcp');
       mcpResource.addMethod('ANY', new cdk.aws_apigateway.LambdaIntegration(mcpServer));
-
     } else {
       const mcpResource = api.root.addResource('mcp');
       mcpResource.addMethod('ANY', new cdk.aws_apigateway.LambdaIntegration(mcpServer));
