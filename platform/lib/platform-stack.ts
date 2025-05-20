@@ -99,6 +99,7 @@ export class PlatformStack extends cdk.Stack {
       functionName: mcpServerFunctionName,
       entry: 'lambda/clients.ts',
       runtime: cdk.aws_lambda.Runtime.NODEJS_22_X,
+      architecture: cdk.aws_lambda.Architecture.ARM_64,
       role: lambdaRole,
       timeout: cdk.Duration.seconds(30),
       logGroup: mcpServerLogGroup,
@@ -151,7 +152,7 @@ export class PlatformStack extends cdk.Stack {
     });
 
     // API Gateway
-    const api = new cdk.aws_apigateway.RestApi(this, 'OAuth21API', {
+    const api = new cdk.aws_apigateway.RestApi(this, useAuth ? 'OAuth21API' : 'MCPAPI', {
       restApiName: useAuth ? 'OAuth 2.1 Provider API' : 'MCP API',
       description: useAuth ? 'API for OAuth 2.1 authorization server' : 'API for MCP',
       defaultCorsPreflightOptions: {
@@ -161,6 +162,7 @@ export class PlatformStack extends cdk.Stack {
       deployOptions: {
         stageName: 'v1',
       },
+      endpointTypes: [cdk.aws_apigateway.EndpointType.REGIONAL],
     });
 
     if (useAuth) {
@@ -200,6 +202,7 @@ export class PlatformStack extends cdk.Stack {
       const authorizeHandler = new cdk.aws_lambda_nodejs.NodejsFunction(this, 'AuthorizeHandler', {
         functionName: authorizeHandlerFunctionName,
         runtime: cdk.aws_lambda.Runtime.NODEJS_22_X,
+        architecture: cdk.aws_lambda.Architecture.ARM_64,
         entry: 'lambda/authorize.ts',
         environment: {
           USER_POOL_ID: userPool.userPoolId,
@@ -225,6 +228,7 @@ export class PlatformStack extends cdk.Stack {
       const tokenHandler = new cdk.aws_lambda_nodejs.NodejsFunction(this, 'TokenHandler', {
         functionName: tokenHandlerFunctionName,
         runtime: cdk.aws_lambda.Runtime.NODEJS_22_X,
+        architecture: cdk.aws_lambda.Architecture.ARM_64,
         entry: 'lambda/token.ts',
         environment: {
           USER_POOL_ID: userPool.userPoolId,
@@ -249,6 +253,7 @@ export class PlatformStack extends cdk.Stack {
       const revokeHandler = new cdk.aws_lambda_nodejs.NodejsFunction(this, 'RevokeHandler', {
         functionName: revokeHandlerFunctionName,
         runtime: cdk.aws_lambda.Runtime.NODEJS_22_X,
+        architecture: cdk.aws_lambda.Architecture.ARM_64,
         entry: 'lambda/revoke.ts',
         environment: {
           AUTHORIZATION_TABLE_NAME: authorizationTable.tableName,
@@ -270,6 +275,7 @@ export class PlatformStack extends cdk.Stack {
         functionName: clientsHandlerFunctionName,
         entry: 'lambda/clients.ts',
         runtime: cdk.aws_lambda.Runtime.NODEJS_22_X,
+        architecture: cdk.aws_lambda.Architecture.ARM_64,
         environment: {
           CLIENTS_TABLE_NAME: clientsTable.tableName,
         },
@@ -313,10 +319,5 @@ export class PlatformStack extends cdk.Stack {
       const mcpResource = api.root.addResource('mcp');
       mcpResource.addMethod('ANY', new cdk.aws_apigateway.LambdaIntegration(mcpServer));
     }
-
-    // 出力
-    new cdk.CfnOutput(this, 'UserPoolId', { value: userPool.userPoolId });
-    new cdk.CfnOutput(this, 'UserPoolClientId', { value: userPoolClient.userPoolClientId });
-    new cdk.CfnOutput(this, 'ApiUrl', { value: api.url });
   }
 }
