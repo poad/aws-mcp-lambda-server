@@ -97,7 +97,8 @@ export class PlatformStack extends cdk.Stack {
     // MCP Server のLambda関数
     const mcpServer = new cdk.aws_lambda_nodejs.NodejsFunction(this, 'McpServer', {
       functionName: mcpServerFunctionName,
-      entry: 'lambda/clients.ts',
+      entry: 'lambda/mcp-server/index.ts',
+      handler: 'run.sh',
       runtime: cdk.aws_lambda.Runtime.NODEJS_22_X,
       architecture: cdk.aws_lambda.Architecture.ARM_64,
       role: lambdaRole,
@@ -106,12 +107,8 @@ export class PlatformStack extends cdk.Stack {
       loggingFormat: cdk.aws_lambda.LoggingFormat.JSON,
       layers: [webAdapter],
       environment: {
-        // Lambda Web Adapter の設定
         AWS_LAMBDA_EXEC_WRAPPER: '/opt/bootstrap',
-
-        // 設定するとエラー時に全て HTTP 500 になるため、デフォルトのままにしておく
-        // AWS_LWA_INVOKE_MODE: 'response_stream',
-
+        AWS_LWA_REMOVE_BASE_PATH: '/v1',
         AWS_LWA_PORT: '8080',
         PORT: '8080',
         RUST_LOG: 'info',
@@ -311,12 +308,8 @@ export class PlatformStack extends cdk.Stack {
       clientResource.addMethod('GET', new cdk.aws_apigateway.LambdaIntegration(clientsHandler));
       clientResource.addMethod('PUT', new cdk.aws_apigateway.LambdaIntegration(clientsHandler));
       clientResource.addMethod('DELETE', new cdk.aws_apigateway.LambdaIntegration(clientsHandler));
-
-      const mcpResource = api.root.addResource('mcp');
-      mcpResource.addMethod('ANY', new cdk.aws_apigateway.LambdaIntegration(mcpServer));
-    } else {
-      const mcpResource = api.root.addResource('mcp');
-      mcpResource.addMethod('ANY', new cdk.aws_apigateway.LambdaIntegration(mcpServer));
     }
+    const mcpResource = api.root.addResource('mcp');
+    mcpResource.addMethod('ANY', new cdk.aws_apigateway.LambdaIntegration(mcpServer));
   }
 }
