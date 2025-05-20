@@ -57,4 +57,4 @@ jobs:
     - name: deploy
       working-directory: ./platform
       run: |
-        npx cdk deploy
+        npx cdk deploy --require-approval=never --all

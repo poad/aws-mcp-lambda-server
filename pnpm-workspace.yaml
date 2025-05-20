@@ -1,4 +1,8 @@
 packages:
   - .
   - ./platform
-  # - ./example/client
+  - ./example/client
+onlyBuiltDependencies:
+  - '@scarf/scarf'
+  - '@tailwindcss/oxide'
+  - sharp

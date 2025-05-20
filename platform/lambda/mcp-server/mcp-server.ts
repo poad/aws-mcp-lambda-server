@@ -1,6 +1,6 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
-import weather from './tools/WeatherTool';
+import weather from './tools/WeatherTool.js';
 
 // サーバーインスタンスの作成
 export const server = new McpServer({
