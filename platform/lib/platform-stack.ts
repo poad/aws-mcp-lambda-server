@@ -14,19 +14,6 @@ export class PlatformStack extends cdk.Stack {
     // const autoClientCallbackUrls = this.node.tryGetContext('autoClientCallbackUrls') as string[];
     const logoutUrls = this.node.tryGetContext('logoutUrls') as string[];
 
-    // DynamoDBテーブル - 認可コードとトークンの保存
-    const authorizationTable = new cdk.aws_dynamodb.Table(this, 'AuthorizationTable', {
-      partitionKey: { name: 'id', type: cdk.aws_dynamodb.AttributeType.STRING },
-      timeToLiveAttribute: 'ttl',
-      billingMode: cdk.aws_dynamodb.BillingMode.PAY_PER_REQUEST,
-    });
-
-    // クライアントアプリケーション情報を保存するテーブル
-    const clientsTable = new cdk.aws_dynamodb.Table(this, 'ClientsTable', {
-      partitionKey: { name: 'clientId', type: cdk.aws_dynamodb.AttributeType.STRING },
-      billingMode: cdk.aws_dynamodb.BillingMode.PAY_PER_REQUEST,
-    });
-
     // Cognito ユーザープール
     const userPool = new cdk.aws_cognito.UserPool(this, 'OAuth21UserPool', {
       userPoolName: `${projectName}-oidc-user-pool`,
@@ -177,6 +164,19 @@ export class PlatformStack extends cdk.Stack {
     });
 
     if (useAuth) {
+      // DynamoDBテーブル - 認可コードとトークンの保存
+      const authorizationTable = new cdk.aws_dynamodb.Table(this, 'AuthorizationTable', {
+        partitionKey: { name: 'id', type: cdk.aws_dynamodb.AttributeType.STRING },
+        timeToLiveAttribute: 'ttl',
+        billingMode: cdk.aws_dynamodb.BillingMode.PAY_PER_REQUEST,
+      });
+
+      // クライアントアプリケーション情報を保存するテーブル
+      const clientsTable = new cdk.aws_dynamodb.Table(this, 'ClientsTable', {
+        partitionKey: { name: 'clientId', type: cdk.aws_dynamodb.AttributeType.STRING },
+        billingMode: cdk.aws_dynamodb.BillingMode.PAY_PER_REQUEST,
+      });
+
       // Lambda関数のIAMロール
       const oauthLambdaRole = new cdk.aws_iam.Role(this, 'OAuthLambdaRole', {
         assumedBy: new cdk.aws_iam.ServicePrincipal('lambda.amazonaws.com'),
