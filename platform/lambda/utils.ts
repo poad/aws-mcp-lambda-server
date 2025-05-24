@@ -140,7 +140,7 @@ export async function revokeToken(id: string): Promise<void> {
 }
 
 // レスポンスヘルパー
-export function createResponse(statusCode: number, body: Record<string, string | number>): APIGatewayProxyResult {
+export function createResponse(statusCode: number, body: Record<string, string | number | string[]> | Record<string, string | number | string[]>[] | null): APIGatewayProxyResult {
   return {
     statusCode,
     headers: {

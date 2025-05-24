@@ -88,7 +88,7 @@ async function handleGetRequest(clientId?: string): Promise<APIGatewayProxyResul
     },
   }));
 
-  return createResponse(200, result.Items || []);
+  return createResponse(200, result.Items as Record<string, string | number>[] ?? []);
 }
 
 // POST: 新しいクライアントの作成
