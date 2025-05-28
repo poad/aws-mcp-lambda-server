@@ -5,4 +5,5 @@ packages:
 onlyBuiltDependencies:
   - '@scarf/scarf'
   - '@tailwindcss/oxide'
+  - protobufjs
   - sharp
