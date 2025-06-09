@@ -2,7 +2,6 @@
 
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
-import stylisticTs from '@stylistic/eslint-plugin-ts';
 import tseslint from 'typescript-eslint';
 import { FlatCompat } from '@eslint/eslintrc';
 // @ts-ignore
@@ -41,7 +40,6 @@ export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.strict,
   ...tseslint.configs.stylistic,
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
   pluginPromise.configs['flat/recommended'],
   {
     files: ['src/**/*.ts'],
@@ -60,7 +58,7 @@ export default tseslint.config(
     },
     plugins: {
       '@stylistic': stylistic,
-      '@stylistic/ts': stylisticTs,
+      '@stylistic/ts': stylistic,
     },
     rules: {
       '@stylistic/semi': ['error', 'always'],
