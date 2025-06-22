@@ -1,7 +1,6 @@
 import { bedrock } from '@ai-sdk/amazon-bedrock';
 import { Agent } from '@mastra/core/agent';
 import { Memory } from '@mastra/memory';
-import { LibSQLStore } from '@mastra/libsql';
 import { mcp } from '../mcp';
 
 const modelId = process.env.MODEL_ID ?? 'us.amazon.nova-premier-v1:0';
@@ -23,9 +22,6 @@ export const weatherAgent = new Agent({
   model: bedrock(modelId),
   tools: { ...await mcp.getTools() },
   memory: new Memory({
-    storage: new LibSQLStore({
-      url: 'file:../mastra.db', // path is relative to the .mastra/output directory
-    }),
     options: {
       lastMessages: 10,
       semanticRecall: false,
