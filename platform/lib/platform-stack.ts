@@ -109,7 +109,6 @@ export class PlatformStack extends cdk.Stack {
         nodeModules: [
           '@modelcontextprotocol/sdk',
           'hono',
-          'fetch-to-node',
           'zod',
         ],
         externalModules: [
