@@ -112,17 +112,6 @@ export class PlatformStack extends cdk.Stack {
           'fetch-to-node',
           'zod',
         ],
-        commandHooks: {
-          afterBundling: (inputDir: string, outputDir: string) => [
-            `cp ${inputDir}/platform/lambda/mcp-server/run.sh ${outputDir}`,
-          ],
-          beforeInstall(): string[] {
-            return [''];
-          },
-          beforeBundling(): string[] {
-            return [''];
-          },
-        },
         externalModules: [
           'dotenv',
           '@hono/node-server',

@@ -8,11 +8,13 @@ const logger = new Logger();
 
 export const app = new Hono();
 
-
 // ルートを設定
 app.post('/mcp', async (c) => {
   try {
-    const transport = new StreamableHTTPTransport();
+    const transport = new StreamableHTTPTransport({
+      sessionIdGenerator: undefined, // セッションIDを生成しない（ステートレスモード）
+      enableJsonResponse: true,
+    });
     await server.connect(transport);
     logger.trace('MCP リクエストを受信');
 
