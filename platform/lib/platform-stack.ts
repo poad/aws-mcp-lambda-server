@@ -87,7 +87,6 @@ export class PlatformStack extends cdk.Stack {
     });
 
 
-    const webAdapter = cdk.aws_lambda.LayerVersion.fromLayerVersionArn(this, 'LayerVersion', `arn:aws:lambda:${this.region}:753240598075:layer:LambdaAdapterLayerArm64:25`);
     const mcpServerFunctionName = `${projectName}-mcp-server`;
     const mcpServerLogGroup = new cdk.aws_logs.LogGroup(this, 'McpServerFunctionLogGroup', {
       logGroupName: `/aws/lambda/${mcpServerFunctionName}`,
@@ -98,21 +97,12 @@ export class PlatformStack extends cdk.Stack {
     const mcpServer = new cdk.aws_lambda_nodejs.NodejsFunction(this, 'McpServer', {
       functionName: mcpServerFunctionName,
       entry: 'lambda/mcp-server/index.ts',
-      handler: 'run.sh',
       runtime: cdk.aws_lambda.Runtime.NODEJS_22_X,
       architecture: cdk.aws_lambda.Architecture.ARM_64,
       role: lambdaRole,
       timeout: cdk.Duration.seconds(30),
       logGroup: mcpServerLogGroup,
       loggingFormat: cdk.aws_lambda.LoggingFormat.JSON,
-      layers: [webAdapter],
-      environment: {
-        AWS_LAMBDA_EXEC_WRAPPER: '/opt/bootstrap',
-        AWS_LWA_REMOVE_BASE_PATH: '/v1',
-        AWS_LWA_PORT: '8080',
-        PORT: '8080',
-        RUST_LOG: 'info',
-      },
       memorySize: 128,
       bundling: {
         // No externalModules since we want to bundle everything
@@ -134,10 +124,8 @@ export class PlatformStack extends cdk.Stack {
           },
         },
         externalModules: [
-          // Lambda レイヤーで提供されるモジュールは除外できる（オプション）
-          '/opt/nodejs/node_modules/aws-lambda-web-adapter',
-
           'dotenv',
+          '@hono/node-server',
         ],
         // minify: true, // コードの最小化
         sourceMap: true, // ソースマップを有効化（デバッグ用）
