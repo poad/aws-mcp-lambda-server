@@ -10,3 +10,6 @@ onlyBuiltDependencies:
   - protobufjs
   - sharp
   - unrs-resolver
+
+overrides:
+  axios@=1.10.0: '>=1.11.0'
