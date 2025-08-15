@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 import weather from './tools/WeatherTool.js';

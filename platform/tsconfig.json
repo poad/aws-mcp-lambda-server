@@ -22,7 +22,7 @@
     "typeRoots": [
       "./node_modules/@types"
     ],
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true

@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { APIGatewayProxyEvent, APIGatewayProxyHandler, APIGatewayProxyResult } from 'aws-lambda';
 import * as crypto from 'crypto';
 import { createResponse } from './utils';

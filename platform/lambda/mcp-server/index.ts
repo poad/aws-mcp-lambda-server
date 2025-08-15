@@ -1,4 +1,5 @@
 import { Hono } from 'hono';
+// eslint-disable-next-line import/no-unresolved
 import { handle } from 'hono/aws-lambda';
 import { StreamableHTTPTransport } from '@hono/mcp';
 import { server } from './mcp-server';

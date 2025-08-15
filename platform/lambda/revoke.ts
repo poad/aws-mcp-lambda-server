@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { APIGatewayProxyHandler } from 'aws-lambda';
 import {
   createResponse,

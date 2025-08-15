@@ -3,14 +3,15 @@
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import tseslint from 'typescript-eslint';
-// @ts-ignore
 import importPlugin from 'eslint-plugin-import';
 
 import pluginPromise from 'eslint-plugin-promise'
 
 import { includeIgnoreFile } from '@eslint/compat';
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+// @ts-expect-error ignore import error for node:path
+import path from 'node:path';
+// @ts-expect-error ignore import error for node:url
+import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -37,19 +38,12 @@ export default tseslint.config(
   pluginPromise.configs['flat/recommended'],
   {
     files: ['**/*.ts'],
-    ...importPlugin.flatConfigs.recommended,
-    ...importPlugin.flatConfigs.typescript,
     languageOptions: {
       parser: tseslint.parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
     },
-    settings: {
-      'import/resolver': {
-        typescript: true,
-        node: true,
-      },
-    },
+    extends: [importPlugin.flatConfigs.recommended, importPlugin.flatConfigs.typescript],
     plugins: {
       '@stylistic': stylistic,
       '@stylistic/ts': stylistic,
