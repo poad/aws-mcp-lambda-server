@@ -9,8 +9,8 @@
   },
   "author": "Kenji Saito",
   "license": "MIT",
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.14.0",
   "devDependencies": {
-    "pnpm": "^10.13.1"
+    "pnpm": "^10.14.0"
   }
 }
