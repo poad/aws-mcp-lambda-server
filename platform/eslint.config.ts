@@ -1,23 +1,20 @@
-// @ts-check
-
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
-import tseslint from 'typescript-eslint';
+import tseslint, { configs, parser, ConfigArray } from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
 
-import pluginPromise from 'eslint-plugin-promise'
+// @ts-expect-error ignore type error --- IGNORE ---
+import pluginPromise from 'eslint-plugin-promise';
 
 import { includeIgnoreFile } from '@eslint/compat';
-// @ts-expect-error ignore import error for node:path
 import path from 'node:path';
-// @ts-expect-error ignore import error for node:url
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const gitignorePath = path.resolve(__dirname, ".gitignore");
+const gitignorePath = path.resolve(__dirname, '.gitignore');
 
-export default tseslint.config(
+const eslintConfig: ConfigArray = tseslint.config(
   includeIgnoreFile(gitignorePath),
   {
     ignores: [
@@ -33,15 +30,28 @@ export default tseslint.config(
     ],
   },
   eslint.configs.recommended,
-  ...tseslint.configs.strict,
-  ...tseslint.configs.stylistic,
+  ...configs.strict,
+  ...configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   {
     files: ['**/*.ts'],
     languageOptions: {
-      parser: tseslint.parser,
+      parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
+      parserOptions: {
+        projectService: {
+          allowDefaultProject: [path.resolve(__dirname, 'tsconfig.json')],
+        },
+        tsconfigRootDir: __dirname,
+      },
+    },
+    settings: {
+      'import/internal-regex': '^~/',
+      'import/resolver': {
+        node: true,
+        typescript: true,
+      },
     },
     extends: [importPlugin.flatConfigs.recommended, importPlugin.flatConfigs.typescript],
     plugins: {
@@ -57,3 +67,5 @@ export default tseslint.config(
     },
   },
 );
+
+export default eslintConfig;

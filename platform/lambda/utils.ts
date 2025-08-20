@@ -3,7 +3,7 @@ import { DeleteCommand, DynamoDBDocumentClient, GetCommand, PutCommand } from '@
 import * as jose from 'jose';
 import * as crypto from 'crypto';
 import { unmarshall } from '@aws-sdk/util-dynamodb';
-// eslint-disable-next-line import/no-unresolved
+ 
 import { APIGatewayProxyResult } from 'aws-lambda';
 
 // 環境変数

@@ -1,7 +1,7 @@
-// eslint-disable-next-line import/no-unresolved
+ 
 import { APIGatewayProxyHandler } from 'aws-lambda';
-// eslint-disable-next-line import/no-unresolved
-import * as uuid from 'uuid';
+ 
+import { v4 as uuidv4 } from 'uuid';
 import {
   createResponse,
   getClient,
@@ -90,7 +90,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
       // トークンの生成
       const accessToken = generateAccessToken();
       const refreshToken = generateRefreshToken();
-      const authorizationId = uuid.v4();
+      const authorizationId = uuidv4();
 
       // トークン情報の保存
       await saveAuthorization({
@@ -134,7 +134,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
 
       // 新しいアクセストークンの生成
       const newAccessToken = generateAccessToken();
-      const authorizationId = uuid.v4();
+      const authorizationId = uuidv4();
 
       // トークン情報の更新
       await saveAuthorization({

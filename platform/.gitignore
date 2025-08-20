@@ -6,4 +6,4 @@ node_modules
 # CDK asset staging directory
 .cdk.staging
 cdk.out
-!eslint.config.js
+eslint.config.js
