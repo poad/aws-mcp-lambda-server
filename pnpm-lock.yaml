@@ -136,8 +136,8 @@ importers:
         specifier: ^10.4.2
         version: 10.4.2
       hono:
-        specifier: ^4.9.5
-        version: 4.9.5
+        specifier: ^4.9.6
+        version: 4.9.6
       jose:
         specifier: ^6.1.0
         version: 6.1.0
@@ -153,10 +153,10 @@ importers:
         version: 9.34.0
       '@hono/mcp':
         specifier: ^0.1.2
-        version: 0.1.2(@modelcontextprotocol/sdk@1.17.4)(hono@4.9.5)
+        version: 0.1.2(@modelcontextprotocol/sdk@1.17.4)(hono@4.9.6)
       '@hono/node-server':
         specifier: ^1.19.1
-        version: 1.19.1(hono@4.9.5)
+        version: 1.19.1(hono@4.9.6)
       '@stylistic/eslint-plugin':
         specifier: ^5.3.1
         version: 5.3.1(eslint@9.34.0(jiti@2.5.1))
@@ -3717,6 +3717,10 @@ packages:
     resolution: {integrity: sha512-aLAVl5/67ifNnoFVxnhR89dpmSLsgwBprw/PT671ASwUpJqmd7Ne8KPTQo37DbRZfgpHaHeZ4bPVUvbOkeedMw==}
     engines: {node: '>=16.9.0'}
 
+  hono@4.9.6:
+    resolution: {integrity: sha512-doVjXhSFvYZ7y0dNokjwwSahcrAfdz+/BCLvAMa/vHLzjj8+CFyV5xteThGUsKdkaasgN+gF2mUxao+SGLpUeA==}
+    engines: {node: '>=16.9.0'}
+
   html-escaper@2.0.2:
     resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
 
@@ -6342,14 +6346,14 @@ snapshots:
       protobufjs: 7.5.4
       yargs: 17.7.2
 
-  '@hono/mcp@0.1.2(@modelcontextprotocol/sdk@1.17.4)(hono@4.9.5)':
+  '@hono/mcp@0.1.2(@modelcontextprotocol/sdk@1.17.4)(hono@4.9.6)':
     dependencies:
       '@modelcontextprotocol/sdk': 1.17.4
-      hono: 4.9.5
+      hono: 4.9.6
 
-  '@hono/node-server@1.19.1(hono@4.9.5)':
+  '@hono/node-server@1.19.1(hono@4.9.6)':
     dependencies:
-      hono: 4.9.5
+      hono: 4.9.6
 
   '@humanfs/core@0.19.1': {}
 
@@ -6663,7 +6667,7 @@ snapshots:
       find-workspaces: 0.3.1
       fs-extra: 11.3.1
       globby: 14.1.0
-      hono: 4.9.5
+      hono: 4.9.6
       local-pkg: 1.1.2
       resolve-from: 5.0.0
       rollup: 4.47.1
@@ -9792,6 +9796,8 @@ snapshots:
       zod: 3.25.76
 
   hono@4.9.5: {}
+
+  hono@4.9.6: {}
 
   html-escaper@2.0.2: {}
 
