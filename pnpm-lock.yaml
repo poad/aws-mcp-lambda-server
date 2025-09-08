@@ -21,8 +21,8 @@ importers:
         specifier: ^3.0.17
         version: 3.0.17(zod@3.25.76)
       '@ai-sdk/azure':
-        specifier: ^2.0.25
-        version: 2.0.25(zod@3.25.76)
+        specifier: ^2.0.26
+        version: 2.0.26(zod@3.25.76)
       '@mastra/client-js':
         specifier: ^0.11.3
         version: 0.11.3(openapi-types@12.1.3)(react@19.1.1)(zod@3.25.76)
@@ -242,8 +242,8 @@ packages:
     peerDependencies:
       zod: ^3.25.76 || ^4
 
-  '@ai-sdk/azure@2.0.25':
-    resolution: {integrity: sha512-DRlugiiYi0UqPyJYn1+225iol1Q99y3I1oXc48dxYugavkiEOZ6ET9VZGbf+9nYHGrnUGAJHdx3GBjcufn5l2g==}
+  '@ai-sdk/azure@2.0.26':
+    resolution: {integrity: sha512-fgKDIMw7lxIlecC/3bDORb4DfWIMH35yCspmFTFfLXw11v2uQ6uwUbFdlrMrMiAJ5/6ZcbGGgPJVwux26H9/gg==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4
@@ -254,8 +254,8 @@ packages:
     peerDependencies:
       zod: ^3.25.76 || ^4
 
-  '@ai-sdk/openai@2.0.25':
-    resolution: {integrity: sha512-2jRVn/8j7oOS+6y808YNLH3QGgBuQFZJygOBMC9z8lQfNiRMaK0iD4vqMeR0dSZce2TrqcEaTPpn/bHfPJp7iA==}
+  '@ai-sdk/openai@2.0.26':
+    resolution: {integrity: sha512-SVe6Ufe5LbvE9XeDvTwAluwHWugzVPcmQ+89OgM6CvIQLztg8JglKzgA6QtY0cCSdy2xHE/t7LaQbQsDT4yQmw==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4
@@ -5383,9 +5383,9 @@ snapshots:
       '@ai-sdk/provider-utils': 3.0.8(zod@3.25.76)
       zod: 3.25.76
 
-  '@ai-sdk/azure@2.0.25(zod@3.25.76)':
+  '@ai-sdk/azure@2.0.26(zod@3.25.76)':
     dependencies:
-      '@ai-sdk/openai': 2.0.25(zod@3.25.76)
+      '@ai-sdk/openai': 2.0.26(zod@3.25.76)
       '@ai-sdk/provider': 2.0.0
       '@ai-sdk/provider-utils': 3.0.8(zod@3.25.76)
       zod: 3.25.76
@@ -5396,7 +5396,7 @@ snapshots:
       '@ai-sdk/provider-utils': 3.0.7(zod@3.25.76)
       zod: 3.25.76
 
-  '@ai-sdk/openai@2.0.25(zod@3.25.76)':
+  '@ai-sdk/openai@2.0.26(zod@3.25.76)':
     dependencies:
       '@ai-sdk/provider': 2.0.0
       '@ai-sdk/provider-utils': 3.0.8(zod@3.25.76)
