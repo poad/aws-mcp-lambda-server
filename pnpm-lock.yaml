@@ -3070,8 +3070,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.216:
-    resolution: {integrity: sha512-uVgsufJ+qIiOsZBmqkM2AGPn3gbqPySHl/SLKXJ70nowhI0VsRX4aog+R9EUL2bOjqPPhfR9pG8j8s4Zk4xq+A==}
+  electron-to-chromium@1.5.217:
+    resolution: {integrity: sha512-Pludfu5iBxp9XzNl0qq2G87hdD17ZV7h5T4n6rQXDi3nCyloBV3jreE9+8GC6g4X/5yxqVgXEURpcLtM0WS4jA==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -5328,8 +5328,8 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.1.5:
-    resolution: {integrity: sha512-rcUUZqlLJgBC33IT3PNMgsCq6TzLQEG/Ei/KTCU0PedSWRMAXoOUN+4t/0H+Q8bdnLPdqUYnvboJT0bn/229qg==}
+  zod@4.1.7:
+    resolution: {integrity: sha512-6qi6UYyzAl7W9uV29KvcSFXqK4QCYNYUz2YASPNBWpJE1RY6R1nArmmFPgGY/CBYWzpeMw3EOER+DR9a05O4IA==}
 
 snapshots:
 
@@ -8600,7 +8600,7 @@ snapshots:
   browserslist@4.25.4:
     dependencies:
       caniuse-lite: 1.0.30001741
-      electron-to-chromium: 1.5.216
+      electron-to-chromium: 1.5.217
       node-releases: 2.0.20
       update-browserslist-db: 1.1.3(browserslist@4.25.4)
 
@@ -8840,7 +8840,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.216: {}
+  electron-to-chromium@1.5.217: {}
 
   emoji-regex@8.0.0: {}
 
@@ -11517,7 +11517,7 @@ snapshots:
 
   zod-from-json-schema@0.5.0:
     dependencies:
-      zod: 4.1.5
+      zod: 4.1.7
 
   zod-to-json-schema@3.24.6(zod@3.25.76):
     dependencies:
@@ -11525,4 +11525,4 @@ snapshots:
 
   zod@3.25.76: {}
 
-  zod@4.1.5: {}
+  zod@4.1.7: {}
