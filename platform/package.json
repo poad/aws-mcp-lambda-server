@@ -40,10 +40,6 @@
   },
   "dependencies": {
     "@aws-lambda-powertools/logger": "^2.26.0",
-    "@aws-sdk/client-cognito-identity-provider": "^3.888.0",
-    "@aws-sdk/client-dynamodb": "^3.888.0",
-    "@aws-sdk/lib-dynamodb": "^3.888.0",
-    "@aws-sdk/util-dynamodb": "^3.888.0",
     "@modelcontextprotocol/sdk": "^1.18.0",
     "aws-cdk-lib": "^2.214.0",
     "constructs": "^10.4.2",
