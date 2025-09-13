@@ -5,6 +5,10 @@ import { mcp } from '../mcp';
 
 const modelId = process.env.MODEL_ID ?? 'us.amazon.nova-premier-v1:0';
 
+/**
+ * 天気情報取得エージェント。WeatherTool を使用してユーザーの質問に回答します。
+ * @type {Agent}
+ */
 export const weatherAgent = new Agent({
   name: 'Weather Agent',
   instructions: `

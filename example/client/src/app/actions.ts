@@ -2,6 +2,11 @@
 
 import { mastra } from '@/mastra';
 
+/**
+ * 天気情報取得アクション。
+ * @param formData - フォームデータ。`message` フィールドに JSON 文字列で { city: string } が含まれ、`maxSteps` に整数のステップ上限が入る。
+ * @returns 取得したステップ情報の配列。
+ */
 export async function getWeatherInfo(formData: FormData) {
   const message = JSON.parse(formData.get('message') as string);
   const maxSteps = parseInt(formData.get('maxSteps') as string);
@@ -37,6 +42,10 @@ export async function getWeatherInfo(formData: FormData) {
   };
 }
 
+/**
+ * エージェント情報取得アクション。
+ * @returns エージェント名、指示内容、使用モデルID を含むオブジェクト。
+ */
 export async function getAgentInfo() {
   const agent = mastra.getAgent('weatherAgent');
 

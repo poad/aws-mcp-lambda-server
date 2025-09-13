@@ -1,161 +1,150 @@
-# Welcome to your CDK TypeScript project
+# Platform (AWS Lambda)
 
-This is a blank project for CDK development with TypeScript.
+## Overview
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+AWS Lambda ベースの Model Context Protocol (MCP) Server および、そのデプロイのための AWS CDKアプリケーションです。
+このパッケージは TypeScript で記述され、**pnpm** でビルドされます。
 
-## Useful commands
+このパッケージは以下の形で利用できます。
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+* **デプロイ** – Lambda 関数として (`platform/lambda/index.ts`)。
+* **ローカル実行** – 開発・デバッグ用に (`platform/lambda/server.ts`)。
 
-## lambda
+両エントリーポイントは同一のコア実装 (`platform/lambda/app.ts`) を共有しています。
 
-A Model Context Protocol (MCP) server built with mcp-framework.
+---
 
-### Quick Start
+## Directory structure
+
+```text
+platform/
+├─ bin/                # CLI utilities (e.g. platform.ts)
+├─ lambda/             # Lambda source code
+│  ├─ app.ts           # Core application logic
+│  ├─ index.ts         # Lambda handler (AWS entry point)
+│  ├─ server.ts        # Local HTTP server (development)
+│  └─ tools/           # Example tool implementations
+│     └─ WeatherTool.ts
+├─ lib/                # CDK stack definition
+│  └─ platform-stack.ts
+├─ .gitignore
+├─ .npmignore
+├─ cdk.json
+├─ eslint.config.ts
+├─ package.json
+├─ README.md           # ← this file
+├─ tsconfig.json
+└─ viteest.config.ts
+```
+
+---
+
+## Prerequisites
+
+* **Node.js** ≥ 22 (LTS)
+* **pnpm** – 未インストールの場合は `npm i -g pnpm` でインストール
+
+---
+
+## Installation
 
 ```bash
-# Install dependencies
-npm install
-
-# Build the project
-npm run build
-
+# リポジトリのルートから実行
+pnpm install
+# platform ワークスペースだけをインストール
+pnpm --filter platform install
 ```
 
-### Project Structure
+---
 
-```
-lambda/
-├── tools/        # MCP Tools
-│   ├── ExampleTool.ts
-├── index.ts      # Server entry point
-```
+## Development
 
-## Adding Components
+### Local server
 
-The project comes with an example tool in `src/tools/ExampleTool.ts`. You can add more tools using the CLI:
+`platform/lambda/server.ts` は Lambda 環境を模倣した HTTP サーバを起動します。素早い反復開発とデバッグに便利です。
 
 ```bash
-# Add a new tool
-mcp add tool my-tool
-
-# Example tools you might create:
-mcp add tool data-processor
-mcp add tool api-client
-mcp add tool file-handler
+# リポジトリのルートから実行
+pnpm --filter platform run dev
 ```
 
-## Tool Development
-
-Example tool structure:
-
-```typescript
-import { MCPTool } from "mcp-framework";
-import { z } from "zod";
-
-interface MyToolInput {
-  message: string;
-}
-
-class MyTool extends MCPTool<MyToolInput> {
-  name = "my_tool";
-  description = "Describes what your tool does";
-
-  schema = {
-    message: {
-      type: z.string(),
-      description: "Description of this input parameter",
-    },
-  };
-
-  async execute(input: MyToolInput) {
-    // Your tool logic here
-    return `Processed: ${input.message}`;
-  }
-}
-
-export default MyTool;
-```
-
-## Publishing to npm
-
-1. Update your package.json:
-   - Ensure `name` is unique and follows npm naming conventions
-   - Set appropriate `version`
-   - Add `description`, `author`, `license`, etc.
-   - Check `bin` points to the correct entry file
-
-2. Build and test locally:
-   ```bash
-   npm run build
-   npm link
-   lambda  # Test your CLI locally
-   ```
-
-3. Login to npm (create account if necessary):
-   ```bash
-   npm login
-   ```
-
-4. Publish your package:
-   ```bash
-   npm publish
-   ```
-
-After publishing, users can add it to their claude desktop client (read below) or run it with npx
-```
-
-## Using with Claude Desktop
-
-### Local Development
-
-Add this configuration to your Claude Desktop config file:
-
-**MacOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-**Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
+`package.json` に定義されているスクリプトは以下の通りです。
 
 ```json
 {
-  "mcpServers": {
-    "lambda": {
-      "command": "node",
-      "args":["/absolute/path/to/lambda/dist/index.js"]
-    }
+  "scripts": {
+    "dev": "ts-node-esm lambda/server.ts"
   }
 }
 ```
 
-### After Publishing
+* **デフォルトポート** – `8080`
+* `PORT` 環境変数で上書き可能
 
-Add this configuration to your Claude Desktop config file:
+サーバ起動時に **ローカル開発モード** であることを示すバナーが表示されます。
 
-**MacOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-**Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
+### Building
 
-```json
-{
-  "mcpServers": {
-    "lambda": {
-      "command": "npx",
-      "args": ["lambda"]
-    }
-  }
-}
+```bash
+pnpm --filter platform run build
 ```
 
-## Building and Testing
+`build` は TypeScript ソースを `dist/` ディレクトリへコンパイルし、`tsconfig.json` の設定を使用します。
 
-1. Make changes to your tools
-2. Run `npm run build` to compile
-3. The server will automatically load your tools on startup
+### Testing
 
-## Learn More
+ユニットテストは `platform/__tests__` 以下に配置されています。実行方法は次の通りです。
 
-- [MCP Framework Github](https://github.com/QuantGeekDev/mcp-framework)
-- [MCP Framework Docs](https://mcp-framework.com)
+```bash
+pnpm --filter platform test
+```
+
+---
+
+## Deployment
+
+`lib/platform-stack.ts` で定義された CDK スタックが Lambda 関数や関連リソースをプロビジョニングします。デプロイは以下のコマンドで行います。
+
+```bash
+cdk deploy --app "pnpm --filter platform run build && node dist/lambda/index.js"
+```
+
+> **注意** – 必要に応じて CDK のブートストラップや AWS クレデンシャルを設定してください。
+
+---
+
+## Architecture diagram
+
+```mermaid
+flowchart TD
+    subgraph Local[Local Development]
+        S[server.ts] --> A[app.ts] --> T[Tool modules]
+    end
+
+    subgraph AWS[Deployed on AWS]
+        L[index.ts] --> A
+        L --> R[API Gateway]
+        L --> D[CloudWatch Logs]
+    end
+
+    style Local fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style AWS fill:#e6f7ff,stroke:#0066cc,stroke-width:1px
+```
+
+* コア (`app.ts`) はローカルサーバとデプロイされた Lambda ハンドラの間で共有されます。
+* ツールモジュール（例: `WeatherTool.ts`）は `app.ts` からインポートされます。
+
+---
+
+## Contributing
+
+1. リポジトリをフォークします。
+2. フィーチャーブランチを作成します (`git checkout -b feat/your-feature`)。
+3. `pnpm install` と `pnpm test` を実行し、既存テストがすべてパスすることを確認します。
+4. 変更内容を明確に記述したプルリクエストを提出します。
+
+---
+
+## License
+
+トップレベルの `LICENSE` ファイルをご参照ください。

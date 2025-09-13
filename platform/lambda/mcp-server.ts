@@ -4,6 +4,10 @@ import { z } from 'zod';
 import weather from './tools/WeatherTool.js';
 
 // サーバーインスタンスの作成
+/**
+ * MCP サーバーインスタンス。WeatherTools 用のツールを登録して提供します。
+ * @type {McpServer}
+ */
 export const server = new McpServer({
   name: 'WeatherTools',
   version: '0.1.0',

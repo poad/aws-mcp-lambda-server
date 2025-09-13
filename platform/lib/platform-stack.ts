@@ -1,6 +1,10 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
+/**
+ * CDK スタック定義。MCP Lambda サーバーと API Gateway をデプロイします。
+ * @class PlatformStack
+ */
 export class PlatformStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);

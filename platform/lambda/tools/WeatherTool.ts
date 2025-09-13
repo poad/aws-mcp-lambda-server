@@ -2,6 +2,11 @@ interface WeatherInput {
   city: string;
 }
 
+/**
+ * 気象情報を取得し、テキストコンテンツとして返すハンドラ関数。
+ * @param args - { city: string } 形式の入力オブジェクト。取得したい都市名を指定。
+ * @returns 気象データを JSON 文字列化したテキストコンテンツ配列。
+ */
 async function handler(args: WeatherInput): Promise<{
   content: { type: 'text', text: string }[]
 }> {
@@ -67,6 +72,9 @@ async function handler(args: WeatherInput): Promise<{
   };
 }
 
+/**
+ * WeatherTool のハンドラ関数をデフォルトエクスポートします。
+ */
 export default handler;
 
 interface Geocoding {
@@ -84,6 +92,11 @@ interface Geocoding {
 
 type GeocodingResponse = Geocoding[];
 
+/**
+ * 天気コードから天気状態の文字列を取得します。
+ * @param code - 天気コード (Open-Meteo の weather_code)。
+ * @returns 対応する天気の説明。未定義コードの場合は 'Unknown' を返します。
+ */
 function getWeatherCondition(code: number): string {
   const conditions: Record<number, string> = {
     0: 'Clear sky',
@@ -119,6 +132,11 @@ function getWeatherCondition(code: number): string {
 }
 
 // Helper function for making NWS API requests
+/**
+ * 指定された URL に対して GET リクエストを行い、JSON を取得します。
+ * @param url - fetch するエンドポイント URL。
+ * @returns JSON パース結果を型付けされた形で返すか、エラー時は null を返します。
+ */
 async function makeNWSRequest<T>(url: string): Promise<T | null> {
   try {
     const response = await fetch(url);
