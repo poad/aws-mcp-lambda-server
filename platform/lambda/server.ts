@@ -44,7 +44,7 @@ process.on('SIGINT', () => {
 process.on('SIGTERM', () => {
   server.close((err) => {
     if (err) {
-      console.error(err);
+      logger.error('error', err);
       process.exit(1);
     }
     process.exit(0);

@@ -8,7 +8,12 @@
 
 - Always evaluate security implications of code changes.
 - Check for potential vulnerabilities and secure coding practices.
-- Verify no hardcoded credentials or secrets
-- Ensure proper input validation and sanitization
-- Check dependencies for known vulnerabilities
-  - Use GitHub Dependabot alerts and `pnpm audit`
+- Verify no hardcoded credentials or secrets.
+- Ensure proper input validation and sanitization.
+- Check dependencies for known vulnerabilities.
+  - Use GitHub Dependabot alerts and `pnpm audit`.
+
+## Coding Style
+
+- Markdown must have no markdownlint warnings remaining.
+- Please make sure to run pnpm run -r lint-fix to conform to the code style and coding conventions.

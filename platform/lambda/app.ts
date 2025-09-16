@@ -12,6 +12,20 @@ const logger = new Logger();
  */
 export const app = new Hono();
 
+const methodNotAllowedHandler = async (c: Context<BlankEnv, '/mcp', BlankInput>) => {
+  return c.json(
+    {
+      jsonrpc: '2.0',
+      error: {
+        code: -32000,
+        message: 'メソッドは許可されていません。',
+      },
+      id: null,
+    },
+    { status: 405 },
+  );
+};
+
 // ルートを設定
 app.post('/mcp', async (c) => {
   try {
@@ -38,20 +52,6 @@ app.post('/mcp', async (c) => {
     );
   }
 });
-
-const methodNotAllowedHandler = async (c: Context<BlankEnv, '/mcp', BlankInput>) => {
-  return c.json(
-    {
-      jsonrpc: '2.0',
-      error: {
-        code: -32000,
-        message: 'メソッドは許可されていません。.',
-      },
-      id: null,
-    },
-    { status: 405 },
-  );
-};
 
 app.get('/mcp', methodNotAllowedHandler);
 
