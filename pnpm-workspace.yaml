@@ -13,3 +13,4 @@ onlyBuiltDependencies:
 
 overrides:
   axios@=1.10.0: '>=1.11.0'
+  jsondiffpatch@<0.7.2: '>=0.7.2'
