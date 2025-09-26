@@ -36,9 +36,23 @@ app.post('/mcp', async (c) => {
     await server.connect(transport);
     logger.trace('MCP リクエストを受信');
 
-    return transport.handleRequest(c);
+    return transport.handleRequest(c)
+      .catch((reason) => {
+        logger.error('MCP リクエスト処理中のエラー:', { reason });
+        throw reason;
+      })
+      .finally(async () => {
+        if (transport) {
+          try {
+            await transport.close();
+          } catch (error) {
+            logger.error('Transport クローズ中のエラー:', { error });
+          }
+        }
+        logger.trace('MCP リクエストの処理が完了');
+      });
   } catch (error) {
-    console.error('MCP リクエスト処理中のエラー:', error);
+    logger.error('MCP リクエスト処理中のエラー:', { error });
     return c.json(
       {
         jsonrpc: '2.0',
