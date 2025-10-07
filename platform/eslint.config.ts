@@ -42,7 +42,11 @@ const eslintConfig: ConfigObject[] = defineConfig(
       ecmaVersion: 'latest',
       sourceType: 'module',
       parserOptions: {
-        project: './tsconfig-eslint.json',
+        projectService: {
+          allowDefaultProject: [
+            '*.config.ts',
+          ],
+        },
         tsconfigRootDir: __dirname,
       },
     },

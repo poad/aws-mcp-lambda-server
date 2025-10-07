@@ -20,3 +20,4 @@
 - Use eslint and editorconfig for automatic code formatting.
 - Follow markdownlint-cli2 for Markdown files.
 - Always run `pnpm run -r lint-fix` to conform to code style and conventions.
+- No destructive reassignment of variables.
