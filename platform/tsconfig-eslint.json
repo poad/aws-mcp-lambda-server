@@ -8,6 +8,11 @@
   "include": [
     "**/*.ts",
     "vite.config.ts",
+    "eslint.config.ts",
     "__tests__"
+  ],
+  "exclude": [
+    "node_modules",
+    "cdk.out"
   ]
 }

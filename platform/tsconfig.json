@@ -25,11 +25,13 @@
     "moduleResolution": "bundler",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true
   },
   "exclude": [
     "node_modules",
     "cdk.out",
-    "vitest.config.ts"
+    "vitest.config.ts",
+    "eslint.config.ts"
   ]
 }

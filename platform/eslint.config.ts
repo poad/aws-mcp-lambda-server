@@ -1,4 +1,5 @@
 import { defineConfig } from 'eslint/config';
+import { type ConfigObject } from '@eslint/core';
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import { configs, parser } from 'typescript-eslint';
@@ -15,7 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const gitignorePath = path.resolve(__dirname, '.gitignore');
 
-const eslintConfig = defineConfig(
+const eslintConfig: ConfigObject[] = defineConfig(
   includeIgnoreFile(gitignorePath),
   {
     ignores: [
@@ -41,9 +42,7 @@ const eslintConfig = defineConfig(
       ecmaVersion: 'latest',
       sourceType: 'module',
       parserOptions: {
-        projectService: {
-          allowDefaultProject: [path.resolve(__dirname, 'tsconfig.json')],
-        },
+        project: './tsconfig-eslint.json',
         tsconfigRootDir: __dirname,
       },
     },
@@ -57,14 +56,14 @@ const eslintConfig = defineConfig(
     extends: [importPlugin.flatConfigs.recommended, importPlugin.flatConfigs.typescript],
     plugins: {
       '@stylistic': stylistic,
-      '@stylistic/ts': stylistic,
     },
     rules: {
       '@stylistic/semi': ['error', 'always'],
-      '@stylistic/ts/indent': ['error', 2],
+      '@stylistic/indent': ['error', 2],
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
       '@stylistic/arrow-parens': ['error', 'always'],
       '@stylistic/quotes': ['error', 'single'],
+      'curly': ['error', 'all'],
     },
   },
 );

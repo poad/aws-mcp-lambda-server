@@ -15,5 +15,8 @@
 
 ## Coding Style
 
-- Markdown must have no markdownlint warnings remaining.
-- Please make sure to run pnpm run -r lint-fix to conform to the code style and coding conventions.
+- Please refer to the eslint.config.ts in the same directory or in the nearest parent directory.
+- Use TypeScript/Node import resolution; use internal paths like `^~/` or `@/*`.
+- Use eslint and editorconfig for automatic code formatting.
+- Follow markdownlint-cli2 for Markdown files.
+- Always run `pnpm run -r lint-fix` to conform to code style and conventions.
