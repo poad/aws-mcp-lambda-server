@@ -9,7 +9,9 @@ import importPlugin from 'eslint-plugin-import';
 import pluginPromise from 'eslint-plugin-promise';
 
 import { includeIgnoreFile } from '@eslint/compat';
+// @ts-expect-error @types/node を入れているが解決できないので ignore
 import path from 'node:path';
+// @ts-expect-error @types/node を入れているが解決できないので ignore
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -45,6 +47,7 @@ const eslintConfig: ConfigObject[] = defineConfig(
         projectService: {
           allowDefaultProject: [
             '*.config.ts',
+            path.resolve(__dirname, 'tsconfig-test.json'),
           ],
         },
         tsconfigRootDir: __dirname,
