@@ -44,6 +44,7 @@
     "@modelcontextprotocol/sdk": "^1.19.1",
     "aws-cdk-lib": "^2.219.0",
     "constructs": "^10.4.2",
+    "fetch-to-node": "^2.1.0",
     "hono": "^4.9.10",
     "zod": "^3.25.76"
   }

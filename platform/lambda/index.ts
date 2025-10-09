@@ -1,10 +1,10 @@
 import { handle } from 'hono/aws-lambda';
 import { Context, Hono } from 'hono';
-import { StreamableHTTPTransport } from '@hono/mcp';
 import { Logger } from '@aws-lambda-powertools/logger';
 import { BlankEnv, BlankInput } from 'hono/types';
+import { toFetchResponse, toReqRes } from 'fetch-to-node';
+import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { createMcpServer } from './mcp-server';
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 
 const logger = new Logger();
 
@@ -56,54 +56,27 @@ const handleError = (
   );
 };
 
-const closeResources = async (server: McpServer, transport: StreamableHTTPTransport) => {
-  // 両方のクローズを確実に実行（片方が失敗してももう片方を実行）
-  const closeResults = await Promise.allSettled([
-    transport.close(),
-    server.close(),
-  ]);
-
-  // クローズエラーをログ出力
-  closeResults.forEach((result, index) => {
-    if (result.status === 'rejected') {
-      const resourceName = index === 0 ? 'transport' : 'server';
-      const error = result.reason;
-      const errorDetails = error instanceof Error
-        ? { message: error.message, stack: error.stack }
-        : error;
-      logger.error(`Error closing ${resourceName}:`, { error: errorDetails });
-    }
-  });
-};
-
 // ルートを設定
 app.post('/mcp', async (c) => {
+  const { req, res } = toReqRes(c.req.raw);
   const server = createMcpServer();
-  const transport = new StreamableHTTPTransport({
-    sessionIdGenerator: undefined, // セッションIDを生成しない（ステートレスモード）
-    enableJsonResponse: true,
-  });
   try {
+    const transport = new StreamableHTTPServerTransport({
+      sessionIdGenerator: undefined, // セッションIDを生成しない（ステートレスモード）
+      enableJsonResponse: true,
+    });
     await server.connect(transport);
-    try {
-      logger.trace('MCP リクエストを受信');
-      return await transport.handleRequest(c);
-    } catch (error) {
-      return handleError(c, error, 'MCP リクエスト処理中のエラー:');
-    } finally {
-      await closeResources(server, transport);
-    }
+    logger.trace('MCP リクエストを受信');
+    await transport.handleRequest(req, res, await c.req.json());
+
+    res.on('close', () => {
+      console.log('Request closed');
+      transport.close();
+      server.close();
+    });
+
+    return toFetchResponse(res);
   } catch (error) {
-    // サーバー接続に失敗した場合、transportのみクローズ（serverは未接続のため）
-    // この時点でserver(サーバー)は未接続と考えられる。未接続のサーバーに対してクローズ処理を実行すると予期しないエラーが発生する可能性があるため
-    try {
-      await transport.close();
-    } catch (closeError) {
-      const errorDetails = closeError instanceof Error
-        ? { message: closeError.message, stack: closeError.stack }
-        : closeError;
-      logger.error('Transport close failed after connection error:', { closeError: errorDetails });
-    }
     return handleError(c, error, 'MCP 接続中のエラー:');
   }
 });
