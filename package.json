@@ -9,9 +9,9 @@
   },
   "author": "Kenji Saito",
   "license": "MIT",
-  "packageManager": "pnpm@10.18.2",
+  "packageManager": "pnpm@10.18.3",
   "devDependencies": {
     "markdownlint-cli": "^0.45.0",
-    "pnpm": "^10.18.2"
+    "pnpm": "^10.18.3"
   }
 }

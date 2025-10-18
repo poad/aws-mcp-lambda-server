@@ -15,11 +15,11 @@
     "@mastra/client-js": "^0.13.2",
     "@mastra/core": "^0.18.0",
     "@mastra/libsql": "^0.14.3",
-    "@mastra/loggers": "^0.10.15",
-    "@mastra/mcp": "^0.13.4",
-    "@mastra/memory": "^0.15.6",
-    "langfuse-vercel": "^3.38.5",
-    "next": "^15.5.4",
+    "@mastra/loggers": "^0.10.16",
+    "@mastra/mcp": "^0.13.5",
+    "@mastra/memory": "^0.15.7",
+    "langfuse-vercel": "^3.38.6",
+    "next": "^15.5.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "zod": "^3.25.76"
@@ -27,14 +27,14 @@
   "devDependencies": {
     "@eslint/compat": "^1.4.0",
     "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.37.0",
-    "@stylistic/eslint-plugin": "^5.4.0",
+    "@eslint/js": "^9.38.0",
+    "@stylistic/eslint-plugin": "^5.5.0",
     "@tailwindcss/postcss": "^4.1.14",
-    "@types/node": "^22.18.9",
+    "@types/node": "^22.18.11",
     "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.1",
-    "eslint": "^9.37.0",
-    "eslint-config-next": "^15.5.4",
+    "@types/react-dom": "^19.2.2",
+    "eslint": "^9.38.0",
+    "eslint-config-next": "^15.5.6",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-promise": "^7.2.1",
@@ -42,6 +42,6 @@
     "mastra": "^0.13.4",
     "tailwindcss": "^4.1.14",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.0"
+    "typescript-eslint": "^8.46.1"
   }
 }
