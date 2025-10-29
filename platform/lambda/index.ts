@@ -85,19 +85,11 @@ app.post('/mcp', async (c) => {
   });
   try {
     await server.connect(transport);
-    try {
-      logger.trace('MCP リクエストを受信');
-      return await transport.handleRequest(c);
-    } catch (error) {
-      return handleError(c, error, 'MCP リクエスト処理中のエラー:');
-    } finally {
-      await closeResources(server, transport);
-    }
+    logger.trace('MCP リクエストを受信');
+    return await transport.handleRequest(c);
   } catch (error) {
-    // サーバー接続に失敗した場合、transportのみクローズ（serverは未接続のため）
-    // この時点でserver(サーバー)は未接続と考えられる。未接続のサーバーに対してクローズ処理を実行すると予期しないエラーが発生する可能性があるため
     try {
-      await transport.close();
+      await closeResources(server, transport);
     } catch (closeError) {
       const errorDetails = closeError instanceof Error
         ? { message: closeError.message, stack: closeError.stack }
