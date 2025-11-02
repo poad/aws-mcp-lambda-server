@@ -3,13 +3,18 @@
 import { useState, useEffect, useActionState, startTransition } from 'react';
 import { getWeatherInfo, getAgentInfo } from './actions';
 
+interface Result { text: string; toolCalls?: string[] };
+
+interface ActionStateStep { text: string };
+interface ActionStateResult { steps: ActionStateStep[] }
+
 export function ChatInterface() {
   const [message, setMessage] = useState('');
-  const [results, setResults] = useState<{ text: string; toolCalls?: string[] }[]>([]);
+  const [results, setResults] = useState<Result[]>([]);
   const [maxSteps, setMaxSteps] = useState(5);
 
   const [state, action, isPending] = useActionState(
-    async (_: { steps: { text: string }[] } | null, formData: FormData) => {
+    async (_: ActionStateResult | null, formData: FormData) => {
       return await getWeatherInfo(formData);
     },
     null

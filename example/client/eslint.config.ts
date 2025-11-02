@@ -1,6 +1,7 @@
+import { defineConfig } from 'eslint/config';
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
-import tseslint from 'typescript-eslint';
+import { configs, parser } from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
 
 // @ts-expect-error ignore type error --- IGNORE ---
@@ -14,7 +15,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const gitignorePath = path.resolve(__dirname, '.gitignore');
 
-const eslintConfig = tseslint.config(
+export default defineConfig(
   includeIgnoreFile(gitignorePath),
   {
     ignores: [
@@ -30,24 +31,26 @@ const eslintConfig = tseslint.config(
     ],
   },
   eslint.configs.recommended,
-  ...tseslint.configs.strict,
-  ...tseslint.configs.stylistic,
+  ...configs.strict,
+  ...configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   {
     files: ['src/**/*.ts', 'eslint.config.*'],
-    ...importPlugin.flatConfigs.recommended,
-    ...importPlugin.flatConfigs.typescript,
     languageOptions: {
-      parser: tseslint.parser,
+      parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
       parserOptions: {
         projectService: {
-          allowDefaultProject: [path.resolve(__dirname, 'tsconfig.json')],
+          allowDefaultProject: [path.resolve(__dirname, 'tsconfig-eslint.json')],
         },
         tsconfigRootDir: __dirname,
       },
     },
+    extends: [
+      importPlugin.flatConfigs.recommended,
+      importPlugin.flatConfigs.typescript,
+    ],
     settings: {
       'import/resolver': {
         typescript: true,
@@ -56,16 +59,14 @@ const eslintConfig = tseslint.config(
     },
     plugins: {
       '@stylistic': stylistic,
-      '@stylistic/ts': stylistic,
     },
     rules: {
       '@stylistic/semi': ['error', 'always'],
-      '@stylistic/ts/indent': ['error', 2],
+      '@stylistic/indent': ['error', 2],
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
       '@stylistic/arrow-parens': ['error', 'always'],
       '@stylistic/quotes': ['error', 'single'],
+      '@typescript-eslint/unified-signatures': ['off'],
     },
   },
 );
-
-export default eslintConfig;
