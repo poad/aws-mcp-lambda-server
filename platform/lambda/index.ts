@@ -7,19 +7,22 @@ import weather from './tools/WeatherTool.js';
 
 const logger = new Logger();
 
-const server = new McpServer({
-  name: 'WeatherTools',
-  version: '0.1.0',
-});
+const createMcpServer = () => {
+  const server = new McpServer({
+    name: 'WeatherTools',
+    version: '0.1.0',
+  });
 
-server.tool(
-  'weather',
-  '街の天気予報を取得します',
-  { city: z.string().describe('街の名前') },
-  weather,
-);
+  server.tool(
+    'weather',
+    '街の天気予報を取得します',
+    { city: z.string().describe('街の名前') },
+    weather,
+  );
+  return server;
+};
 
-const app = createHonoApp(server);
+const app = createHonoApp(createMcpServer);
 
 // Lambda handler
 export const handler = handle(app);
