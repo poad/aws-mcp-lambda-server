@@ -13,10 +13,12 @@ const createMcpServer = () => {
     version: '0.1.0',
   });
 
-  server.tool(
+  server.registerTool(
     'weather',
-    '街の天気予報を取得します',
-    { city: z.string().describe('街の名前') },
+    {
+      description: '街の天気予報を取得します',
+      inputSchema: { city: z.string().describe('街の名前') },
+    },
     weather,
   );
   return server;
