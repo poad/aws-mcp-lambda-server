@@ -23,7 +23,7 @@
     "@stylistic/eslint-plugin": "^5.6.1",
     "@types/aws-lambda": "^8.10.159",
     "@types/node": "^22.19.1",
-    "@vitest/coverage-v8": "^4.0.12",
+    "@vitest/coverage-v8": "^4.0.13",
     "aws-cdk": "^2.1033.0",
     "esbuild": "^0.27.0",
     "eslint": "^9.39.1",
@@ -36,12 +36,12 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.47.0",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^4.0.12"
+    "vitest": "^4.0.13"
   },
   "dependencies": {
-    "@aws-lambda-powertools/logger": "^2.28.1",
+    "@aws-lambda-powertools/logger": "^2.29.0",
     "@modelcontextprotocol/sdk": "^1.22.0",
-    "aws-cdk-lib": "^2.225.0",
+    "aws-cdk-lib": "^2.227.0",
     "aws-lambda-mcp-server": "^0.0.3",
     "constructs": "^10.4.3",
     "hono": "^4.10.6",
