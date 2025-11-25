@@ -30,7 +30,7 @@ export class PlatformStack extends cdk.Stack {
     const mcpServer = new cdk.aws_lambda_nodejs.NodejsFunction(this, 'McpServer', {
       functionName: mcpServerFunctionName,
       entry: 'lambda/index.ts',
-      runtime: cdk.aws_lambda.Runtime.NODEJS_22_X,
+      runtime: cdk.aws_lambda.Runtime.NODEJS_24_X,
       architecture: cdk.aws_lambda.Architecture.ARM_64,
       role: lambdaRole,
       timeout: cdk.Duration.seconds(30),
