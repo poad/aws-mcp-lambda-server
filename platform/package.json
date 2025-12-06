@@ -40,8 +40,8 @@
   },
   "dependencies": {
     "@aws-lambda-powertools/logger": "^2.29.0",
-    "@modelcontextprotocol/sdk": "^1.24.2",
-    "aws-cdk-lib": "^2.231.0",
+    "@modelcontextprotocol/sdk": "^1.24.3",
+    "aws-cdk-lib": "^2.232.1",
     "aws-lambda-mcp-server": "^1.1.0",
     "constructs": "^10.4.3",
     "hono": "^4.10.7",

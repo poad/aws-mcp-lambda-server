@@ -11,7 +11,7 @@
     "lint-fix": "eslint . --fix"
   },
   "dependencies": {
-    "@ai-sdk/amazon-bedrock": "^3.0.66",
+    "@ai-sdk/amazon-bedrock": "^3.0.67",
     "@mastra/client-js": "^0.16.15",
     "@mastra/core": "^0.24.6",
     "@mastra/libsql": "^0.16.3",
