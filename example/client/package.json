@@ -19,7 +19,7 @@
     "@mastra/mcp": "^0.14.4",
     "@mastra/memory": "^0.15.12",
     "langfuse-vercel": "^3.38.6",
-    "next": "^16.0.8",
+    "next": "^16.0.9",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "zod": "^4.1.13"
