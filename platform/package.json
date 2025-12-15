@@ -22,9 +22,9 @@
     "@hono/node-server": "^1.19.7",
     "@stylistic/eslint-plugin": "^5.6.1",
     "@types/aws-lambda": "^8.10.159",
-    "@types/node": "^22.19.2",
+    "@types/node": "^22.19.3",
     "@vitest/coverage-v8": "^4.0.15",
-    "aws-cdk": "^2.1034.0",
+    "aws-cdk": "^2.1100.0",
     "esbuild": "^0.27.1",
     "eslint": "^9.39.2",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -34,17 +34,17 @@
     "tslib": "^2.8.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.49.0",
+    "typescript-eslint": "^8.50.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^4.0.15"
   },
   "dependencies": {
     "@aws-lambda-powertools/logger": "^2.30.0",
-    "@modelcontextprotocol/sdk": "^1.24.3",
+    "@modelcontextprotocol/sdk": "^1.25.0",
     "aws-cdk-lib": "^2.232.2",
     "aws-lambda-mcp-server": "^1.1.0",
     "constructs": "^10.4.4",
-    "hono": "^4.10.8",
-    "zod": "^4.1.13"
+    "hono": "^4.11.1",
+    "zod": "^4.2.0"
   }
 }
