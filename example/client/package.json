@@ -11,7 +11,7 @@
     "lint-fix": "eslint . --fix"
   },
   "dependencies": {
-    "@ai-sdk/amazon-bedrock": "^3.0.71",
+    "@ai-sdk/amazon-bedrock": "^3.0.73",
     "@mastra/client-js": "^0.16.15",
     "@mastra/core": "^0.24.9",
     "@mastra/libsql": "^0.16.4",
@@ -42,6 +42,6 @@
     "mastra": "^0.18.9",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.50.1"
+    "typescript-eslint": "^8.51.0"
   }
 }
