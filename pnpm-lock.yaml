@@ -119,8 +119,8 @@ importers:
   platform:
     dependencies:
       '@aws-lambda-powertools/logger':
-        specifier: ^2.30.0
-        version: 2.30.0
+        specifier: ^2.30.1
+        version: 2.30.1
       '@modelcontextprotocol/sdk':
         specifier: ^1.25.1
         version: 1.25.1(hono@4.11.3)(zod@4.3.5)
@@ -129,7 +129,7 @@ importers:
         version: 2.233.0(constructs@10.4.4)
       aws-lambda-mcp-server:
         specifier: ^1.1.0
-        version: 1.1.0(@aws-lambda-powertools/logger@2.30.0)(@hono/mcp@0.1.5(@modelcontextprotocol/sdk@1.25.1(hono@4.11.3)(zod@4.3.5))(hono@4.11.3))(@modelcontextprotocol/sdk@1.25.1(hono@4.11.3)(zod@4.3.5))(hono@4.11.3)(zod@4.3.5)
+        version: 1.1.0(@aws-lambda-powertools/logger@2.30.1)(@hono/mcp@0.1.5(@modelcontextprotocol/sdk@1.25.1(hono@4.11.3)(zod@4.3.5))(hono@4.11.3))(@modelcontextprotocol/sdk@1.25.1(hono@4.11.3)(zod@4.3.5))(hono@4.11.3)(zod@4.3.5)
       constructs:
         specifier: ^10.4.4
         version: 10.4.4
@@ -168,8 +168,8 @@ importers:
         specifier: ^4.0.16
         version: 4.0.16(vitest@4.0.16(@opentelemetry/api@1.9.0)(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))
       aws-cdk:
-        specifier: ^2.1100.2
-        version: 2.1100.2
+        specifier: ^2.1100.3
+        version: 2.1100.3
       esbuild:
         specifier: ^0.27.2
         version: 0.27.2
@@ -371,13 +371,13 @@ packages:
   '@aws-crypto/util@5.2.0':
     resolution: {integrity: sha512-4RkU9EsI6ZpBve5fseQlGNUWKMa1RLPQ1dnjnQoe07ldfIzcsGb5hC5W0Dm7u423KWzawlrpbjXBrXCEv9zazQ==}
 
-  '@aws-lambda-powertools/commons@2.30.0':
-    resolution: {integrity: sha512-5kjamCPR/dIEHIk4BAFDSO/MgF21qL/q/f5AKi3GEOdvULuLcbw40xneMmPXo4ETaBSe+BHvovWLuI0Jl9BEnw==}
+  '@aws-lambda-powertools/commons@2.30.1':
+    resolution: {integrity: sha512-EbbnqrQ1zB8EIFHClHuG0kQWAA7hfy9bcbhacoFAJcwm5dZFmla7buwwfOWElWhy4+bUtLa0N7W9+gNT5KsYHw==}
 
-  '@aws-lambda-powertools/logger@2.30.0':
-    resolution: {integrity: sha512-ejmuzn8KNi7CrhJSnl4a/SLAjcmlHJPvH55QpSZvj8K8aQLhOKcCpd0u+gXp0oYlj50d22h9ZV5qtIn7O8V4Lw==}
+  '@aws-lambda-powertools/logger@2.30.1':
+    resolution: {integrity: sha512-WTakR1Qv7Vr2hmoDrACtdrOyDnomai7BN8NumYuloPhGqUj2gf72kd9qHcePPbnqlbMtyV2YdXT9W3k+VccLLg==}
     peerDependencies:
-      '@aws-lambda-powertools/jmespath': 2.30.0
+      '@aws-lambda-powertools/jmespath': 2.30.1
       '@middy/core': 4.x || 5.x || 6.x
     peerDependenciesMeta:
       '@aws-lambda-powertools/jmespath':
@@ -2825,8 +2825,8 @@ packages:
       - yaml
       - mime-types
 
-  aws-cdk@2.1100.2:
-    resolution: {integrity: sha512-PK80VEunZGpGW3+66EbPUpoKZKxsK7/BBR3X2qqtgk5wrSVJn+rq3Rwlih5lCD223rpf2RXAnC5weGHdEtgSuA==}
+  aws-cdk@2.1100.3:
+    resolution: {integrity: sha512-jeSamF+IwPJKhqMir7Cw+2IoeHsmNFc/SoDAlOS9BYM8Wrd0Q1jJd3GcJOFzsMcWv9mcBAP5o23amyKHu03dXA==}
     engines: {node: '>= 18.0.0'}
     hasBin: true
 
@@ -2842,8 +2842,8 @@ packages:
   aws4fetch@1.0.20:
     resolution: {integrity: sha512-/djoAN709iY65ETD6LKCtyyEI04XIBP5xVvfmNxsEP0uJB5tyaGBztSryRr4HqMStr9R06PisQE7m9zDTXKu6g==}
 
-  axe-core@4.11.0:
-    resolution: {integrity: sha512-ilYanEU8vxxBexpJd8cWM4ElSQq4QctCLKih0TSfjIfCQTeyH/6zVrmIJfLPrKTKJRbiG+cfnZbQIjAlJmF1jQ==}
+  axe-core@4.11.1:
+    resolution: {integrity: sha512-BASOg+YwO2C+346x3LZOeoovTIoTrRqEsqMa6fmfAV0P+U9mFr9NsyOEpiYvFjbc64NMrSswhV50WdXzdb/Z5A==}
     engines: {node: '>=4'}
 
   axios@1.13.2:
@@ -4707,8 +4707,8 @@ packages:
     resolution: {integrity: sha512-9ZhXKM/rw350N1ovuWHbGxnGh/SNJ4cnxHiM0rxE4VN41wsg8P8zWn9hv/buK00RP4WvlOyr/RBDiptyxVbkZQ==}
     engines: {node: '>=0.10.0'}
 
-  postgres@3.4.7:
-    resolution: {integrity: sha512-Jtc2612XINuBjIl/QTWsV5UvE8UHuNblcO3vVADSrKsrc6RqGX6lOW1cEo3CM2v0XG4Nat8nI+YM7/f26VxXLw==}
+  postgres@3.4.8:
+    resolution: {integrity: sha512-d+JFcLM17njZaOLkv6SCev7uoLaBtfK86vMUXhW1Z4glPWh4jozno9APvW/XKFJ3CCxVoC7OL38BqRydtu5nGg==}
     engines: {node: '>=12'}
 
   posthog-node@4.18.0:
@@ -5236,8 +5236,8 @@ packages:
   uc.micro@2.1.0:
     resolution: {integrity: sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==}
 
-  ufo@1.6.1:
-    resolution: {integrity: sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA==}
+  ufo@1.6.2:
+    resolution: {integrity: sha512-heMioaxBcG9+Znsda5Q8sQbWnLJSl98AFDXTO80wELWEzX3hordXsTdxrIfMQoO9IY1MEnoGoPjpoKpMj+Yx0Q==}
 
   unbox-primitive@1.1.0:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
@@ -5693,15 +5693,14 @@ snapshots:
       '@smithy/util-utf8': 2.3.0
       tslib: 2.8.1
 
-  '@aws-lambda-powertools/commons@2.30.0':
+  '@aws-lambda-powertools/commons@2.30.1':
     dependencies:
       '@aws/lambda-invoke-store': 0.2.2
 
-  '@aws-lambda-powertools/logger@2.30.0':
+  '@aws-lambda-powertools/logger@2.30.1':
     dependencies:
-      '@aws-lambda-powertools/commons': 2.30.0
+      '@aws-lambda-powertools/commons': 2.30.1
       '@aws/lambda-invoke-store': 0.2.2
-      lodash.merge: 4.6.2
 
   '@aws-sdk/types@3.957.0':
     dependencies:
@@ -6610,7 +6609,7 @@ snapshots:
       json-schema: 0.4.0
       pg: 8.16.3
       pg-pool: 3.10.1(pg@8.16.3)
-      postgres: 3.4.7
+      postgres: 3.4.8
       redis: 5.10.0
       xxhash-wasm: 1.1.0
       zod: 4.3.5
@@ -8348,13 +8347,13 @@ snapshots:
       '@aws-cdk/cloud-assembly-schema': 48.20.0
       constructs: 10.4.4
 
-  aws-cdk@2.1100.2:
+  aws-cdk@2.1100.3:
     optionalDependencies:
       fsevents: 2.3.2
 
-  aws-lambda-mcp-server@1.1.0(@aws-lambda-powertools/logger@2.30.0)(@hono/mcp@0.1.5(@modelcontextprotocol/sdk@1.25.1(hono@4.11.3)(zod@4.3.5))(hono@4.11.3))(@modelcontextprotocol/sdk@1.25.1(hono@4.11.3)(zod@4.3.5))(hono@4.11.3)(zod@4.3.5):
+  aws-lambda-mcp-server@1.1.0(@aws-lambda-powertools/logger@2.30.1)(@hono/mcp@0.1.5(@modelcontextprotocol/sdk@1.25.1(hono@4.11.3)(zod@4.3.5))(hono@4.11.3))(@modelcontextprotocol/sdk@1.25.1(hono@4.11.3)(zod@4.3.5))(hono@4.11.3)(zod@4.3.5):
     dependencies:
-      '@aws-lambda-powertools/logger': 2.30.0
+      '@aws-lambda-powertools/logger': 2.30.1
       '@hono/mcp': 0.1.5(@modelcontextprotocol/sdk@1.25.1(hono@4.11.3)(zod@4.3.5))(hono@4.11.3)
       '@modelcontextprotocol/sdk': 1.25.1(hono@4.11.3)(zod@4.3.5)
       hono: 4.11.3
@@ -8362,7 +8361,7 @@ snapshots:
 
   aws4fetch@1.0.20: {}
 
-  axe-core@4.11.0: {}
+  axe-core@4.11.1: {}
 
   axios@1.13.2:
     dependencies:
@@ -9028,7 +9027,7 @@ snapshots:
       array-includes: 3.1.9
       array.prototype.flatmap: 1.3.3
       ast-types-flow: 0.0.8
-      axe-core: 4.11.0
+      axe-core: 4.11.1
       axobject-query: 4.1.0
       damerau-levenshtein: 1.0.8
       emoji-regex: 9.2.2
@@ -10298,7 +10297,7 @@ snapshots:
       acorn: 8.15.0
       pathe: 2.0.3
       pkg-types: 1.3.1
-      ufo: 1.6.1
+      ufo: 1.6.2
 
   module-details-from-path@1.0.4: {}
 
@@ -10611,7 +10610,7 @@ snapshots:
     dependencies:
       xtend: 4.0.2
 
-  postgres@3.4.7: {}
+  postgres@3.4.8: {}
 
   posthog-node@4.18.0:
     dependencies:
@@ -11288,7 +11287,7 @@ snapshots:
 
   uc.micro@2.1.0: {}
 
-  ufo@1.6.1: {}
+  ufo@1.6.2: {}
 
   unbox-primitive@1.1.0:
     dependencies:
