@@ -23,7 +23,7 @@ export async function getWeatherInfo(formData: FormData) {
         steps.push({
           text,
           toolCalls: Array.isArray(toolCalls)
-            ? toolCalls.map((tc) => tc.toolName)
+            ? toolCalls.map((tc) => tc.payload.toolName)
             : [],
         });
       },

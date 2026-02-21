@@ -10,6 +10,7 @@ const modelId = process.env.MODEL_ID ?? 'us.amazon.nova-premier-v1:0';
  * @type {Agent}
  */
 export const weatherAgent = new Agent({
+  id: 'weatherAgent',
   name: 'Weather Agent',
   instructions: `
       あなたは正確な天気情報を提供する便利な天気アシスタントです。
@@ -24,14 +25,12 @@ export const weatherAgent = new Agent({
       現在の天気データを取得するには、weatherToolを使用してください。
 `,
   model: bedrock(modelId),
-  tools: { ...await mcp.getTools() },
+  tools: { ...await mcp.listTools() },
   memory: new Memory({
     options: {
       lastMessages: 10,
       semanticRecall: false,
-      threads: {
-        generateTitle: false,
-      },
+      generateTitle: false,
     },
   }),
 });
