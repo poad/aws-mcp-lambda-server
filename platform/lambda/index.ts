@@ -1,9 +1,9 @@
+import weather from './tools/WeatherTool.js';
 import { Logger } from '@aws-lambda-powertools/logger';
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp';
 import { handle } from 'hono/aws-lambda';
 import { z } from 'zod';
 import { createHonoApp } from 'aws-lambda-mcp-server';
-import weather from './tools/WeatherTool.js';
 
 const logger = new Logger();
 

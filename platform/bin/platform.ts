@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import * as cdk from 'aws-cdk-lib';
 import { PlatformStack } from '../lib/platform-stack';
+import * as cdk from 'aws-cdk-lib';
 
 const app = new cdk.App();
-const stack = new PlatformStack(app, 'aws-mcp-lambda-server', {
+const stack = new PlatformStack(app, 'AwsMcpLambdaServer', {
 
 });
 cdk.RemovalPolicies.of(stack).destroy();

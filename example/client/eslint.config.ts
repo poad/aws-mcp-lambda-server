@@ -41,9 +41,7 @@ export default defineConfig(
       ecmaVersion: 'latest',
       sourceType: 'module',
       parserOptions: {
-        projectService: {
-          allowDefaultProject: [path.resolve(__dirname, 'tsconfig-eslint.json')],
-        },
+        projectService: true,
         tsconfigRootDir: __dirname,
       },
     },

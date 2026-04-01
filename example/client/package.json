@@ -11,18 +11,18 @@
     "lint-fix": "eslint . --fix"
   },
   "dependencies": {
-    "@ai-sdk/amazon-bedrock": "^4.0.83",
-    "@mastra/ai-sdk": "^1.2.1",
-    "@mastra/client-js": "^1.10.0",
-    "@mastra/core": "^1.17.0",
-    "@mastra/langfuse": "^1.0.8",
-    "@mastra/libsql": "^1.7.2",
-    "@mastra/loggers": "^1.0.3",
-    "@mastra/mcp": "^1.3.1",
-    "@mastra/memory": "^1.10.0",
-    "@mastra/observability": "^1.5.1",
-    "ai": "^6.0.141",
-    "next": "^16.2.1",
+    "@ai-sdk/amazon-bedrock": "^4.0.85",
+    "@mastra/ai-sdk": "^1.3.0",
+    "@mastra/client-js": "^1.11.2",
+    "@mastra/core": "^1.20.0",
+    "@mastra/langfuse": "^1.0.10",
+    "@mastra/libsql": "^1.7.3",
+    "@mastra/loggers": "^1.1.0",
+    "@mastra/mcp": "^1.4.1",
+    "@mastra/memory": "^1.12.1",
+    "@mastra/observability": "^1.7.0",
+    "ai": "^6.0.142",
+    "next": "^16.2.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "zod": "^4.3.6"
@@ -37,14 +37,14 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.4",
-    "eslint-config-next": "^16.2.1",
+    "eslint-config-next": "^16.2.2",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-promise": "^7.2.1",
     "jiti": "^2.6.1",
-    "mastra": "^1.3.15",
+    "mastra": "^1.3.18",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.2"
+    "typescript-eslint": "^8.58.0"
   }
 }

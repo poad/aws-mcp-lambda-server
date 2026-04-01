@@ -26,12 +26,11 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": ["node"]
   },
   "exclude": [
     "node_modules",
-    "cdk.out",
-    "vitest.config.ts",
-    "eslint.config.ts"
+    "cdk.out"
   ]
 }

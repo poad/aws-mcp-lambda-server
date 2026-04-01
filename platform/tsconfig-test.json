@@ -2,12 +2,13 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "esnext",
-    "types": ["vitest/globals"],
+    "types": ["vitest/globals", "node"],
     "noEmit": false
   },
   "include": [
     "**/*.ts",
     "vitest.config.ts",
-    "__tests__"
+    "__tests__",
+    "eslint.config.ts"
   ]
 }
