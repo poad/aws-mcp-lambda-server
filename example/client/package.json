@@ -11,21 +11,21 @@
     "lint-fix": "eslint . --fix"
   },
   "dependencies": {
-    "@ai-sdk/amazon-bedrock": "^4.0.100",
+    "@ai-sdk/amazon-bedrock": "^4.0.101",
     "@mastra/ai-sdk": "^1.4.1",
-    "@mastra/client-js": "^1.16.0",
-    "@mastra/core": "^1.31.0",
-    "@mastra/langfuse": "^1.2.4",
-    "@mastra/libsql": "^1.9.1",
+    "@mastra/client-js": "^1.17.1",
+    "@mastra/core": "^1.32.1",
+    "@mastra/langfuse": "^1.2.5",
+    "@mastra/libsql": "^1.10.0",
     "@mastra/loggers": "^1.1.1",
-    "@mastra/mcp": "^1.6.0",
-    "@mastra/memory": "^1.17.4",
-    "@mastra/observability": "^1.11.0",
-    "ai": "^6.0.174",
-    "next": "^16.2.4",
+    "@mastra/mcp": "^1.7.0",
+    "@mastra/memory": "^1.17.5",
+    "@mastra/observability": "^1.11.1",
+    "ai": "^6.0.175",
+    "next": "^16.2.6",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "zod": "^4.4.2"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@eslint/compat": "^2.0.5",
@@ -41,10 +41,10 @@
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-promise": "^7.3.0",
-    "jiti": "^2.6.1",
-    "mastra": "^1.7.3",
+    "jiti": "^2.7.0",
+    "mastra": "^1.8.1",
     "tailwindcss": "^4.2.4",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.59.1"
+    "typescript-eslint": "^8.59.2"
   }
 }
