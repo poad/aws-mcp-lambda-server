@@ -21,6 +21,7 @@ minimumReleaseAgeExclude:
   - fast-uri@3.1.2
   - hono@4.12.18
   - next@16.2.6
+  - ws@8.20.1
 
 overrides:
   '@types/node': ^24
@@ -47,5 +48,6 @@ overrides:
   vite@>=7.0.0 <=7.3.1: '>=7.3.2'
   vite@>=7.1.0 <=7.3.1: '>=7.3.2'
   vite@>=8.0.0 <=8.0.4: '>=8.0.5'
+  ws@>=8.0.0 <8.20.1: ^8.20.1
 
 trustPolicy: no-downgrade
