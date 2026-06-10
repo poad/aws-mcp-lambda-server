@@ -210,6 +210,7 @@ overrides:
   eslint-import-resolver-typescript: ^4.4.4
   postcss@<8.5.10: ^8.5.10
   semver: '>=7'
+  shell-quote: '>=1.8.4'
 
 importers:
 
