@@ -22,7 +22,7 @@ fi
 echo ""
 pwd
 
-if ! (npx -y pnpm@latest self-update && pnpm install && pnpm up -r && pnpm audit --fix override  && pnpm up -r && pnpm lint-fix && pnpm build && pnpm install --no-frozen-lockfile); then
+if ! (pnx pnpm@latest self-update && pnpm clean --lockfile&& pnpm install && pnpm up -r && pnpm audit --fix override  && pnpm up -r && pnpm lint-fix && pnpm build && pnpm install --no-frozen-lockfile); then
   cd "${CUR}" || exit
   exit 1
 fi
@@ -33,11 +33,10 @@ if [ $result -ne 0 ]; then
   cd "${CUR}" || exit
   exit $result
 fi
-git commit -am "Bumps node modules" && git push
-result=$?
-if [ $result -ne 0 ]; then
+
+if ! (git commit -am "Bumps node modules" && git push); then
   cd "${CUR}" || exit
-  exit $result
+  exit 1
 fi
 
 cd "${CUR}" || exit

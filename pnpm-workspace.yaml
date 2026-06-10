@@ -12,9 +12,14 @@ allowBuilds:
 minimumReleaseAge: 10080 # 7 days in minutes
 
 minimumReleaseAgeExclude:
+  - pnpm@11.5.3
   - postcss@8.5.10
+  - '@ai-sdk/provider-utils@4.0.27'
+  - '@ai-sdk/provider-utils@3.0.98'
 
 overrides:
+  '@ai-sdk/provider-utils@<=3.0.97': ^3.0.98
+  '@ai-sdk/provider-utils@<=3.0.98': ^4
   chokidar: '>=5'
   eslint-import-resolver-typescript: '^4.4.4'
   postcss@<8.5.10: ^8.5.10
