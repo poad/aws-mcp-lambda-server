@@ -12,11 +12,7 @@ allowBuilds:
 minimumReleaseAge: 10080 # 7 days in minutes
 
 minimumReleaseAgeExclude:
-  - pnpm@11.9.0
   - '@ai-sdk/provider-utils@3.0.98'
-  - js-yaml@4.1.2
-  - markdown-it@14.1.2
-  - '@opentelemetry/core@2.8.0'
 
 overrides:
   '@ai-sdk/provider-utils@<=3.0.97': ^3.0.98

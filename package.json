@@ -15,16 +15,13 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "^11.5.1",
+      "version": "~11.10.0",
       "onFail": "download"
-    }
-  },
-  "engines": {
+    },
     "runtime": {
       "name": "node",
       "version": "^24.18.0",
       "onFail": "download"
     }
-  },
-  "dependencies": {}
+  }
 }
