@@ -13,18 +13,27 @@ minimumReleaseAge: 10080 # 7 days in minutes
 
 minimumReleaseAgeExclude:
   - '@ai-sdk/provider-utils@3.0.98'
+  - brace-expansion@5.0.7 || 5.0.8
+  - protobufjs@7.6.5
+  - '@hono/node-server@2.0.5'
+  - sharp@0.35.0
 
 overrides:
   '@ai-sdk/provider-utils@<=3.0.97': ^3.0.98
   '@ai-sdk/provider-utils@<=3.0.98': ^4
+  '@hono/node-server@<2.0.5': ^2.0.5
   '@opentelemetry/core@<2.8.0': ^2.8.0
+  brace-expansion@<=5.0.7: ^5.0.8
+  brace-expansion@>=3.0.0 <5.0.7: ^5.0.7
   chokidar: '>=5'
   esbuild@>=0.17.0 <0.28.1: ^0.28.1
   eslint-import-resolver-typescript: '^4.4.5'
   js-yaml@<=4.1.1: ^4.1.2
   markdown-it@<=14.1.1: ^14.1.2
   postcss@<8.5.10: ^8.5.10
+  protobufjs@>=7.5.0 <=7.6.4: ^7.6.5
   semver: '>=7'
+  sharp@<0.35.0: ^0.35.0
   shell-quote: '>=1.8.4'
 
 trustPolicy: no-downgrade
