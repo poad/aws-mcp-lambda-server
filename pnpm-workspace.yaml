@@ -23,8 +23,10 @@ minimumReleaseAgeExclude:
   - brace-expansion@5.0.9
   - '@ai-sdk/provider@4.0.6'
 
+  - pnpm@11.24.0
+
 overrides:
-  '@ai-sdk/provider-utils@<=3.0.97': ^5.0.23
+  '@ai-sdk/provider-utils@<=3.0.97': ^4.0.0
   '@hono/node-server@<2.0.5': ^2.0.5
   '@opentelemetry/core@<2.8.0': ^2.8.0
   brace-expansion@>=4.0.0 <5.0.9: ^5.0.9

@@ -10,17 +10,17 @@
   "author": "Kenji Saito",
   "license": "MIT",
   "devDependencies": {
-    "markdownlint-cli2": "^0.22.1"
+    "markdownlint-cli2": "^0.23.2"
   },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "~11.20.0",
+      "version": "~11.24.0",
       "onFail": "download"
     },
     "runtime": {
       "name": "node",
-      "version": "^24.19.0",
+      "version": "^24.20.0",
       "onFail": "download"
     }
   }
