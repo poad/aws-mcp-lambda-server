@@ -23,12 +23,31 @@ minimumReleaseAgeExclude:
   - brace-expansion@5.0.9
   - '@ai-sdk/provider@4.0.6'
 
-  - pnpm@11.24.0
+  - pnpm@12.16.0
+  - '@pnpm/exe.android-arm64@12.16.0'
+  - '@pnpm/exe.android-x64@12.16.0'
+  - '@pnpm/exe.darwin-arm64@12.16.0'
+  - '@pnpm/exe.darwin-x64@12.16.0'
+  - '@pnpm/exe.freebsd-x64@12.16.0'
+  - '@pnpm/exe.linux-arm64-musl@12.16.0'
+  - '@pnpm/exe.linux-arm64@12.16.0'
+  - '@pnpm/exe.linux-ppc64@12.16.0'
+  - '@pnpm/exe.linux-riscv64@12.16.0'
+  - '@pnpm/exe.linux-s390x@12.16.0'
+  - '@pnpm/exe.linux-x64-musl@12.16.0'
+  - '@pnpm/exe.linux-x64@12.16.0'
+  - '@pnpm/exe.win32-arm64@12.16.0'
+  - '@pnpm/exe.win32-x64@12.16.0'
+  - body-parser@2.4.0
 
 overrides:
   '@ai-sdk/provider-utils@<=3.0.97': ^4.0.0
   '@hono/node-server@<2.0.5': ^2.0.5
+  '@modelcontextprotocol/client@>=2.0.0 <2.3.0': ^2.3.0
+  '@modelcontextprotocol/node@>=2.0.0 <2.1.0': ^2.1.0
+  '@modelcontextprotocol/server@>=2.0.0 <2.3.0': ^2.3.0
   '@opentelemetry/core@<2.8.0': ^2.8.0
+  body-parser@>=2.0.0 <2.4.0: ^2.4.0
   brace-expansion@>=4.0.0 <5.0.9: ^5.0.9
   chokidar: '>=5'
   eslint-import-resolver-typescript: '^4.4.5'
@@ -37,13 +56,16 @@ overrides:
   js-yaml@>=4.0.0 <4.3.0: ^4.3.0
   js-yaml@>=4.0.0 <4.3.1: ^4.3.1
   js-yaml@>=4.0.0 <=4.1.1: ^4.1.2
+  katex@>=0.11.0 <0.18.2: ^0.18.2
   markdown-it@<=14.1.1: ^14.1.2
+  markdown-it@>=15.0.0 <15.0.3: ^15.0.3
   postcss@<8.5.10: ^8.5.10
   postcss@<=8.5.11: ^8.5.12
   postcss@<=8.5.17: ^8.5.18
   postcss@<=8.5.22: ^8.5.23
   semver: '>=7'
   sharp@<0.35.0: ^0.35.0
+  smol-toml@<=1.8.0: ^1.9.0
   undici: '>=6'
 
 trustPolicy: no-downgrade
