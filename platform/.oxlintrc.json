@@ -1,0 +1,26 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": [
+    "**/*.d.ts",
+    "out",
+    "cdk.out",
+    "**/generated/**",
+    "**/*.js"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "plugins": [
+    "typescript",
+    "promise"
+  ],
+  "jsPlugins": ["oxlint-plugin-awscdk"],
+  "rules": {
+    "@typescript-eslint/strict-boolean-expressions": "warn",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-floating-promises": "error",
+    "promise/no-return-wrap": "error",
+    "promise/always-return": "error"
+  }
+}

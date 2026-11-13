@@ -1,9 +1,29 @@
 import { bedrock } from '@ai-sdk/amazon-bedrock';
 import { Agent } from '@mastra/core/agent';
+import type { MastraModelConfig } from '@mastra/core/llm';
 import { Memory } from '@mastra/memory';
 import { mcp } from '../mcp';
 
 const modelId = process.env.MODEL_ID ?? 'us.amazon.nova-premier-v1:0';
+const bedrockModel = bedrock(modelId);
+
+/**
+ * @ai-sdk/amazon-bedrock が返す `LanguageModelV4` は `@ai-sdk/provider@4.0.36` を、
+ * Mastra がバンドルする型は `@ai-sdk_provider@4.0.35` をベースとしており、
+ * `LanguageModelV4StreamPart` が構造的に異なる（4.0.36 に "ping" が追加）ため、
+ * 生のモデルを `MastraModelConfig` にそのまま渡すと型エラーになる。
+ *
+ * `doGenerate` はそのまま整合するため、ストリーム部分のみを整合させた
+ * アダプターを介す。ランタイムでは Mastra が v4 モデルを
+ * `AISDKV7LanguageModel` でラップするため、動作に影響はない。
+ */
+const model: MastraModelConfig = {
+  ...bedrockModel,
+  doStream: async (options: Parameters<typeof bedrockModel.doStream>[0]) => {
+    const { stream } = await bedrockModel.doStream(options);
+    return Object.assign({ stream: new ReadableStream() }, { stream });
+  },
+};
 
 /**
  * 天気情報取得エージェント。WeatherTool を使用してユーザーの質問に回答します。
@@ -24,8 +44,8 @@ export const weatherAgent = new Agent({
 
       現在の天気データを取得するには、weatherToolを使用してください。
 `,
-  model: bedrock(modelId),
-  tools: { ...await mcp.listTools() },
+  model,
+  tools: { ...(await mcp.listTools()) },
   memory: new Memory({
     options: {
       lastMessages: 10,

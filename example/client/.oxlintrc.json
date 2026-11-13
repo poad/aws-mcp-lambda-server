@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": [
+    "**/*.d.ts",
+    "*.{js,jsx}",
+    "src/tsconfig.json",
+    "src/stories",
+    "**/*.css",
+    "node_modules/**/*",
+    "out",
+    "cdk.out",
+    "dist"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "plugins": [
+    "typescript",
+    "promise"
+  ],
+  "rules": {
+    "@typescript-eslint/unified-signatures": "off"
+  }
+}
