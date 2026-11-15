@@ -13,7 +13,7 @@
     "format:check": "oxfmt --check"
   },
   "dependencies": {
-    "@ai-sdk/amazon-bedrock": "^5.0.134",
+    "@ai-sdk/amazon-bedrock": "^5.0.135",
     "@mastra/ai-sdk": "^1.11.3",
     "@mastra/client-js": "^1.59.0",
     "@mastra/core": "^1.82.0",
@@ -23,7 +23,7 @@
     "@mastra/mcp": "^2.8.0",
     "@mastra/memory": "^1.41.0",
     "@mastra/observability": "^1.23.1",
-    "ai": "^7.0.164",
+    "ai": "^7.0.165",
     "next": "^16.4.5",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
