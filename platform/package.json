@@ -18,28 +18,28 @@
   },
   "devDependencies": {
     "@hono/mcp": "^0.3.5",
-    "@hono/node-server": "^2.1.6",
+    "@hono/node-server": "^2.1.8",
     "@types/aws-lambda": "^8.10.164",
     "@types/node": "^26.6.6",
     "@vitest/coverage-v8": "^5.1.0",
-    "aws-cdk": "^2.1148.0",
+    "aws-cdk": "^2.1148.1",
     "esbuild": "^0.28.2",
-    "oxfmt": "^0.77.0",
-    "oxlint": "^1.92.0",
+    "oxfmt": "^0.78.0",
+    "oxlint": "^1.93.0",
     "oxlint-plugin-awscdk": "^1.0.4",
     "tslib": "^2.9.1",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
-    "vite": "^8.3.6",
+    "vite": "^8.3.8",
     "vitest": "^5.1.0"
   },
   "dependencies": {
     "@aws-lambda-powertools/logger": "^2.36.0",
     "@modelcontextprotocol/sdk": "^1.32.2",
-    "aws-cdk-lib": "^2.275.0",
+    "aws-cdk-lib": "^2.277.0",
     "aws-lambda-mcp-server": "^1.1.8",
     "constructs": "^10.8.1",
-    "hono": "^4.13.17",
+    "hono": "^4.13.18",
     "zod": "^4.6.7"
   }
 }
